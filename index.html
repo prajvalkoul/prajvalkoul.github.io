@@ -9,21 +9,6 @@
 leftmargin=10 topmargin=10 marginwidth=10 marginheight=10 oncontextmenu="return false;">
 	
 	<script type = "text/javascript">
-        function clip(element)
-        {
-          var $temp = $("<input>");
-          $("body").append($temp);
-          $temp.val($(element).text()).select();
-          document.execCommand("copy");
-          $temp.remove();
-        }
-        
-        function hideme(element)
-        {
-            element.style.display='none';
-            document.getElementById('creatori').style.display='block';
-        }
-        
         var sf;
         var sfrun;
         function snow()
