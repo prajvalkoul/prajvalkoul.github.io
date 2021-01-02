@@ -7,6 +7,68 @@
 </head>
 <body  text="000000" link="cadetblue" alink="cadetblue" vlink="darkcyan"  
 leftmargin=10 topmargin=10 marginwidth=10 marginheight=10 oncontextmenu="return false;">
+	
+	<script type = "text/javascript">
+        function clip(element)
+        {
+          var $temp = $("<input>");
+          $("body").append($temp);
+          $temp.val($(element).text()).select();
+          document.execCommand("copy");
+          $temp.remove();
+        }
+        
+        function hideme(element)
+        {
+            element.style.display='none';
+            document.getElementById('creatori').style.display='block';
+        }
+        
+        var sf;
+        var sfrun;
+        
+        function snow()
+        {
+            if (sfrun)
+            {
+                sf.stop();
+                sfrun = false;
+            }
+            else
+            {
+                sf.start();
+                sfrun = true;
+            }
+        }
+        
+        $(document).ready(function() {
+            
+            
+            sf = new Snowflakes({
+                color: "#A2A2A2",
+                count: 77,
+                minSize: 12,
+                maxSize: 33
+            });
+            
+            sfrun = true;
+            
+            var doi = '10.1017/S0963548307008693';
+            
+            if (doi.substr(0, 7) == '10.0000')
+            {
+                document.getElementById('reload').style.display = 'none';
+                
+                if (doi.indexOf('generic') > -1)
+                    document.getElementById('link').style.display = 'none';
+            }
+            
+            else if( $('#citation').text() == ' ')
+                $("#citation").load('//sci-hub.do/cite/10.1017/S0963548307008693');
+            
+        });
+    </script>
+	
 <div align="left">
 <table border="0"  width="1000" cellspacing="0" cellpadding="1"  >
 
